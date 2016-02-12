@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="ReactivePopulr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +17,50 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QWJ-xu-d0k">
+                                <rect key="frame" x="40" y="118" width="520" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="boj-0N-0fM">
+                                <rect key="frame" x="40" y="156" width="520" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6HF-oi-0KT">
+                                <rect key="frame" x="40" y="60" width="520" height="29"/>
+                                <segments>
+                                    <segment title="Login"/>
+                                    <segment title="Register"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4R-3e-BLK">
+                                <rect key="frame" x="276" y="226" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6HF-oi-0KT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="2Rw-aE-riF"/>
+                            <constraint firstItem="6HF-oi-0KT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="4z9-PE-tEz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QWJ-xu-d0k" secondAttribute="trailing" constant="20" id="BFx-hi-e0f"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="boj-0N-0fM" secondAttribute="trailing" constant="20" id="Ez2-6Q-b5Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6HF-oi-0KT" secondAttribute="trailing" constant="20" id="Hxg-Zi-6hN"/>
+                            <constraint firstItem="u4R-3e-BLK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nhu-po-6FL"/>
+                            <constraint firstItem="boj-0N-0fM" firstAttribute="top" secondItem="QWJ-xu-d0k" secondAttribute="bottom" constant="8" id="SWC-bU-VgV"/>
+                            <constraint firstItem="u4R-3e-BLK" firstAttribute="top" secondItem="boj-0N-0fM" secondAttribute="bottom" constant="40" id="iNa-oT-hOE"/>
+                            <constraint firstItem="QWJ-xu-d0k" firstAttribute="top" secondItem="6HF-oi-0KT" secondAttribute="bottom" constant="30" id="mwq-il-6QM"/>
+                            <constraint firstItem="QWJ-xu-d0k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="qc6-sw-4uF"/>
+                            <constraint firstItem="boj-0N-0fM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="vj8-PG-2xy"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="boj-0N-0fM" id="5Vf-7T-VdC"/>
+                        <outlet property="segmentControl" destination="6HF-oi-0KT" id="rYa-vv-a3Q"/>
+                        <outlet property="sublitButton" destination="u4R-3e-BLK" id="djN-I1-F8N"/>
+                        <outlet property="usernameTextField" destination="QWJ-xu-d0k" id="FNs-vy-Cme"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

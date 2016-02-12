@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		F77C63741C6E3F7D0007381F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C63731C6E3F7D0007381F /* AppDelegate.swift */; };
-		F77C63761C6E3F7D0007381F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C63751C6E3F7D0007381F /* ViewController.swift */; };
+		F77C63761C6E3F7D0007381F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C63751C6E3F7D0007381F /* LoginViewController.swift */; };
 		F77C63791C6E3F7D0007381F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77C63771C6E3F7D0007381F /* Main.storyboard */; };
 		F77C637B1C6E3F7D0007381F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F77C637A1C6E3F7D0007381F /* Assets.xcassets */; };
 		F77C637E1C6E3F7D0007381F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77C637C1C6E3F7D0007381F /* LaunchScreen.storyboard */; };
 		F77C63891C6E3F7D0007381F /* ReactivePopulrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C63881C6E3F7D0007381F /* ReactivePopulrTests.swift */; };
 		F77C63941C6E3F7D0007381F /* ReactivePopulrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C63931C6E3F7D0007381F /* ReactivePopulrUITests.swift */; };
+		F77C63A51C6E43940007381F /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77C63A11C6E43940007381F /* RxBlocking.framework */; };
+		F77C63A61C6E43940007381F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77C63A21C6E43940007381F /* RxCocoa.framework */; };
+		F77C63A71C6E43940007381F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77C63A31C6E43940007381F /* RxSwift.framework */; };
+		F77C63A81C6E43940007381F /* RxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77C63A41C6E43940007381F /* RxTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,7 @@
 /* Begin PBXFileReference section */
 		F77C63701C6E3F7D0007381F /* ReactivePopulr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactivePopulr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F77C63731C6E3F7D0007381F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F77C63751C6E3F7D0007381F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F77C63751C6E3F7D0007381F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F77C63781C6E3F7D0007381F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F77C637A1C6E3F7D0007381F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F77C637D1C6E3F7D0007381F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,10 @@
 		F77C638F1C6E3F7D0007381F /* ReactivePopulrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactivePopulrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F77C63931C6E3F7D0007381F /* ReactivePopulrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactivePopulrUITests.swift; sourceTree = "<group>"; };
 		F77C63951C6E3F7D0007381F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F77C63A11C6E43940007381F /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		F77C63A21C6E43940007381F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		F77C63A31C6E43940007381F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		F77C63A41C6E43940007381F /* RxTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTests.framework; path = Carthage/Build/iOS/RxTests.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F77C63A51C6E43940007381F /* RxBlocking.framework in Frameworks */,
+				F77C63A61C6E43940007381F /* RxCocoa.framework in Frameworks */,
+				F77C63A71C6E43940007381F /* RxSwift.framework in Frameworks */,
+				F77C63A81C6E43940007381F /* RxTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +89,10 @@
 		F77C63671C6E3F7D0007381F = {
 			isa = PBXGroup;
 			children = (
+				F77C63A11C6E43940007381F /* RxBlocking.framework */,
+				F77C63A21C6E43940007381F /* RxCocoa.framework */,
+				F77C63A31C6E43940007381F /* RxSwift.framework */,
+				F77C63A41C6E43940007381F /* RxTests.framework */,
 				F77C63721C6E3F7D0007381F /* ReactivePopulr */,
 				F77C63871C6E3F7D0007381F /* ReactivePopulrTests */,
 				F77C63921C6E3F7D0007381F /* ReactivePopulrUITests */,
@@ -98,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				F77C63731C6E3F7D0007381F /* AppDelegate.swift */,
-				F77C63751C6E3F7D0007381F /* ViewController.swift */,
+				F77C63751C6E3F7D0007381F /* LoginViewController.swift */,
 				F77C63771C6E3F7D0007381F /* Main.storyboard */,
 				F77C637A1C6E3F7D0007381F /* Assets.xcassets */,
 				F77C637C1C6E3F7D0007381F /* LaunchScreen.storyboard */,
@@ -135,6 +151,7 @@
 				F77C636C1C6E3F7D0007381F /* Sources */,
 				F77C636D1C6E3F7D0007381F /* Frameworks */,
 				F77C636E1C6E3F7D0007381F /* Resources */,
+				F77C63A91C6E439E0007381F /* Carthage Script */,
 			);
 			buildRules = (
 			);
@@ -251,12 +268,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F77C63A91C6E439E0007381F /* Carthage Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxTests.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+			);
+			name = "Carthage Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F77C636C1C6E3F7D0007381F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F77C63761C6E3F7D0007381F /* ViewController.swift in Sources */,
+				F77C63761C6E3F7D0007381F /* LoginViewController.swift in Sources */,
 				F77C63741C6E3F7D0007381F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +437,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ReactivePopulr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getPopulr.ReactivePopulr;
@@ -410,6 +452,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ReactivePopulr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getPopulr.ReactivePopulr;
