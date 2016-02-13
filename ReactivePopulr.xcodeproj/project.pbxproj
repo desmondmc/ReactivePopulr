@@ -17,7 +17,6 @@
 		F77C63A51C6E43940007381F /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77C63A11C6E43940007381F /* RxBlocking.framework */; };
 		F77C63A61C6E43940007381F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77C63A21C6E43940007381F /* RxCocoa.framework */; };
 		F77C63A71C6E43940007381F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77C63A31C6E43940007381F /* RxSwift.framework */; };
-		F77C63A81C6E43940007381F /* RxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77C63A41C6E43940007381F /* RxTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +64,6 @@
 				F77C63A51C6E43940007381F /* RxBlocking.framework in Frameworks */,
 				F77C63A61C6E43940007381F /* RxCocoa.framework in Frameworks */,
 				F77C63A71C6E43940007381F /* RxSwift.framework in Frameworks */,
-				F77C63A81C6E43940007381F /* RxTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +282,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxTests.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 			);

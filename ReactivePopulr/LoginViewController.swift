@@ -27,8 +27,8 @@ class LoginViewController: UIViewController {
             .map { self.isPassword($0)}
         
         Observable.combineLatest(isValidUsername, isValidPassword) { $0 && $1 }
-        .bindTo(sublitButton.rx_enabled)
-        .addDisposableTo(disposeBag)
+            .bindTo(sublitButton.rx_enabled)
+            .addDisposableTo(disposeBag)
             
     }
     
