@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var sublitButton: UIButton!
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +26,10 @@ class LoginViewController: UIViewController {
         let isValidPassword = passwordTextField.rx_text
             .map { self.isPassword($0)}
         
-        Observable.combineLatest(isValidUsername, isValidPassword,
-            resultSelector: { $0 && $1 }
-                .bindTo(sublitButton.rx_enabled)
-        )
-        
+        Observable.combineLatest(isValidUsername, isValidPassword) { $0 && $1 }
+        .bindTo(sublitButton.rx_enabled)
+        .addDisposableTo(disposeBag)
+            
     }
     
     func isUsername(text: String) -> Bool {
