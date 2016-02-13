@@ -25,7 +25,10 @@ class LoginViewController: UIViewController {
         let isValidPassword = passwordTextField.rx_text
             .map { self.isPassword($0)}
         
-        Observable.combineLatest(isValidUsername, isValidPassword) { $0 + " " + $1 }
+        Observable.combineLatest(isValidUsername, isValidPassword,
+            resultSelector: { $0 && $1 }
+                .bindTo(sublitButton.rx_enabled)
+        )
         
     }
     

@@ -86,17 +86,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F77C63671C6E3F7D0007381F = {
+		7ACB0A481C6F28000009D948 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				F77C63A11C6E43940007381F /* RxBlocking.framework */,
 				F77C63A21C6E43940007381F /* RxCocoa.framework */,
 				F77C63A31C6E43940007381F /* RxSwift.framework */,
 				F77C63A41C6E43940007381F /* RxTests.framework */,
+			);
+			name = frameworks;
+			sourceTree = "<group>";
+		};
+		F77C63671C6E3F7D0007381F = {
+			isa = PBXGroup;
+			children = (
 				F77C63721C6E3F7D0007381F /* ReactivePopulr */,
 				F77C63871C6E3F7D0007381F /* ReactivePopulrTests */,
 				F77C63921C6E3F7D0007381F /* ReactivePopulrUITests */,
 				F77C63711C6E3F7D0007381F /* Products */,
+				7ACB0A481C6F28000009D948 /* frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -530,6 +538,7 @@
 				F77C639A1C6E3F7D0007381F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F77C639B1C6E3F7D0007381F /* Build configuration list for PBXNativeTarget "ReactivePopulrTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +547,7 @@
 				F77C639D1C6E3F7D0007381F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F77C639E1C6E3F7D0007381F /* Build configuration list for PBXNativeTarget "ReactivePopulrUITests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +556,7 @@
 				F77C63A01C6E3F7D0007381F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
