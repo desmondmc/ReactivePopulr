@@ -22,32 +22,16 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let isValidUsername = usernameTextField.rx_text
-            .map { self.isUsername($0)}
-        let isValidPassword = passwordTextField.rx_text
-            .map { self.isPassword($0)}
+        let viewModel = LoginViewModel(
+            username: usernameTextField.rx_text.asObservable(),
+            password: passwordTextField.rx_text.asObservable(),
+            submitTaps: submitButton.rx_tap.asObservable(),
+            segmentControl:  segmentControl.rx_value.asObservable()
+        )
         
-        Observable.combineLatest(isValidUsername, isValidPassword) { $0 && $1 }
+        viewModel.submitEnabled
             .bindTo(submitButton.rx_enabled)
             .addDisposableTo(disposeBag)
-        
-        submitButton.rx_tap
-            .subscribeNext {
-                if self.segmentControl.selectedSegmentIndex == 0 {
-                    print("Make login request")
-                } else {
-                    print("Make register request")
-                }
-            }
-            .addDisposableTo(disposeBag)
-    }
-    
-    func isUsername(text: String) -> Bool {
-        return text.characters.count > 5
-    }
-    
-    func isPassword(text: String) -> Bool {
-        return text.characters.count > 5
     }
 }
 
