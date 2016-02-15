@@ -15,7 +15,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var sublitButton: UIButton!
+    @IBOutlet weak var submitButton: UIButton!
+    
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -27,9 +28,18 @@ class LoginViewController: UIViewController {
             .map { self.isPassword($0)}
         
         Observable.combineLatest(isValidUsername, isValidPassword) { $0 && $1 }
-            .bindTo(sublitButton.rx_enabled)
+            .bindTo(submitButton.rx_enabled)
             .addDisposableTo(disposeBag)
-            
+        
+        submitButton.rx_tap
+            .subscribeNext {
+                if self.segmentControl.selectedSegmentIndex == 0 {
+                    print("Make login request")
+                } else {
+                    print("Make register request")
+                }
+            }
+            .addDisposableTo(disposeBag)
     }
     
     func isUsername(text: String) -> Bool {
