@@ -8,7 +8,6 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 
 
 class LoginViewModel {
@@ -18,6 +17,8 @@ class LoginViewModel {
     
     // Is submit button enabled
     let submitEnabled: Observable<Bool>
+    
+    let disposeBag = DisposeBag()
     
     init(
         username: Observable<String>,
@@ -33,7 +34,6 @@ class LoginViewModel {
         
         submitEnabled = Observable.combineLatest(validatedUsername, validatedPassword) { $0 && $1 }
         
-        //let usernameAndPassword = Observable.combineLatest(username, password) { ($0, $1) }
         let usernamePasswordAndSegment = Observable.combineLatest(username, password, segmentControl) { ($0, $1, $2) }
         
         submitTaps.withLatestFrom(usernamePasswordAndSegment).subscribeNext { username, password, segment in
@@ -44,7 +44,7 @@ class LoginViewModel {
                 print("register")
             }
             print("with username: \(username) and password: \(password)")
-        }
+        }.addDisposableTo(disposeBag)
         
     }
     
