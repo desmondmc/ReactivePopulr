@@ -12,11 +12,18 @@ import RxSwift
 
 class LoginViewModel {
     
-    let validatedUsername: Observable<Bool>
-    let validatedPassword: Observable<Bool>
-    
     // Is submit button enabled
     let submitEnabled: Observable<Bool>
+    
+    // Has user signed in
+    //let signedIn: Observable<Bool>
+    
+    // Is signing process in progress
+    // let signingIn: Observable<Bool>
+    
+    
+    let validatedUsername: Observable<Bool>
+    let validatedPassword: Observable<Bool>
     
     let disposeBag = DisposeBag()
     
@@ -36,16 +43,16 @@ class LoginViewModel {
         
         let usernamePasswordAndSegment = Observable.combineLatest(username, password, segmentControl) { ($0, $1, $2) }
         
-        submitTaps.withLatestFrom(usernamePasswordAndSegment).subscribeNext { username, password, segment in
-            switch segment {
-            case 0:
-                print("login")
-            default:
-                print("register")
-            }
-            print("with username: \(username) and password: \(password)")
-        }.addDisposableTo(disposeBag)
-        
+        submitTaps.withLatestFrom(usernamePasswordAndSegment)
+            .flatMapLatest { username, password, segment -> Observable<Bool> in
+                if segment == 0 {
+                    // Do nothing!
+                }
+                
+                return API.login(username, password: password)
+            }.subscribeNext { result in
+                print("logged in!")
+            }.addDisposableTo(disposeBag)
     }
     
     class func isUsernameValid(text: String) -> Bool {
@@ -53,6 +60,6 @@ class LoginViewModel {
     }
     
     class func isPasswordValid(text: String) -> Bool {
-        return text.characters.count > 5
+        return text.characters.count > 2
     }
 }
