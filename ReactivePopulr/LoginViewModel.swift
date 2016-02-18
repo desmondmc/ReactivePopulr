@@ -41,10 +41,9 @@ class LoginViewModel {
         self.submitTaps.withLatestFrom(usernamePasswordAndSegment)
             .flatMapLatest { username, password, segment -> Observable<AnyObject> in
                 if segment == 0 {
-                    // Do nothing!
+                    API.login(username, password: password)
                 }
-                
-                return API.login(username, password: password)
+                return API.signup(username, password: password)
             }.subscribeNext() { result in
                 print("Something happened! Here's the result: \(result)")
             }.addDisposableTo(self.disposeBag)
