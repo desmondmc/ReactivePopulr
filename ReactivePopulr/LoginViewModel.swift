@@ -14,23 +14,18 @@ class LoginViewModel {
     
     // Is submit button enabled
     let submitEnabled: Observable<Bool>
-    
     let validatedUsername: Observable<Bool>
     let validatedPassword: Observable<Bool>
-    
     let submitTaps: Observable<Void>
     
-    let disposeBag: DisposeBag
+    let disposeBag = DisposeBag()
     
     init(
         username: Observable<String>,
         password: Observable<String>,
         submitTaps: Observable<Void>,
-        segmentControl: Observable<Int>,
-        disposeBag: DisposeBag
+        segmentControl: Observable<Int>
     ) {
-        self.disposeBag = disposeBag
-        
         self.validatedUsername = username
             .map { LoginViewModel.isUsernameValid($0) }
         

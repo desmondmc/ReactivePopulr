@@ -17,20 +17,20 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     
+    var viewModel: LoginViewModel?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let viewModel = LoginViewModel(
+        self.viewModel = LoginViewModel(
             username: usernameTextField.rx_text.asObservable(),
             password: passwordTextField.rx_text.asObservable(),
             submitTaps: submitButton.rx_tap.asObservable(),
-            segmentControl:  segmentControl.rx_value.asObservable(),
-            disposeBag: self.disposeBag
+            segmentControl:  segmentControl.rx_value.asObservable()
         )
         
-        viewModel.submitEnabled
+        self.viewModel!.submitEnabled
             .bindTo(submitButton.rx_enabled)
             .addDisposableTo(disposeBag)
     }
