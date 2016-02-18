@@ -15,44 +15,44 @@ class LoginViewModel {
     // Is submit button enabled
     let submitEnabled: Observable<Bool>
     
-    // Has user signed in
-    //let signedIn: Observable<Bool>
-    
-    // Is signing process in progress
-    // let signingIn: Observable<Bool>
-    
-    
     let validatedUsername: Observable<Bool>
     let validatedPassword: Observable<Bool>
     
-    let disposeBag = DisposeBag()
+    let submitTaps: Observable<Void>
+    
+    let disposeBag: DisposeBag
     
     init(
         username: Observable<String>,
         password: Observable<String>,
         submitTaps: Observable<Void>,
-        segmentControl: Observable<Int>
+        segmentControl: Observable<Int>,
+        disposeBag: DisposeBag
     ) {
-        validatedUsername = username
+        self.disposeBag = disposeBag
+        
+        self.validatedUsername = username
             .map { LoginViewModel.isUsernameValid($0) }
         
-        validatedPassword = password
+        self.validatedPassword = password
             .map { LoginViewModel.isPasswordValid($0) }
         
         submitEnabled = Observable.combineLatest(validatedUsername, validatedPassword) { $0 && $1 }
         
         let usernamePasswordAndSegment = Observable.combineLatest(username, password, segmentControl) { ($0, $1, $2) }
         
-        submitTaps.withLatestFrom(usernamePasswordAndSegment)
-            .flatMapLatest { username, password, segment -> Observable<Bool> in
+        self.submitTaps = submitTaps
+        
+        self.submitTaps.withLatestFrom(usernamePasswordAndSegment)
+            .flatMapLatest { username, password, segment -> Observable<AnyObject> in
                 if segment == 0 {
                     // Do nothing!
                 }
                 
                 return API.login(username, password: password)
-            }.subscribeNext { result in
-                print("logged in!")
-            }.addDisposableTo(disposeBag)
+            }.subscribeNext() { result in
+                print("Something happened! Here's the result: \(result)")
+            }.addDisposableTo(self.disposeBag)
     }
     
     class func isUsernameValid(text: String) -> Bool {

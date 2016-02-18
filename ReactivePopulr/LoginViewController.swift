@@ -26,7 +26,8 @@ class LoginViewController: UIViewController {
             username: usernameTextField.rx_text.asObservable(),
             password: passwordTextField.rx_text.asObservable(),
             submitTaps: submitButton.rx_tap.asObservable(),
-            segmentControl:  segmentControl.rx_value.asObservable()
+            segmentControl:  segmentControl.rx_value.asObservable(),
+            disposeBag: self.disposeBag
         )
         
         viewModel.submitEnabled
