@@ -16,7 +16,6 @@ class LoginViewModel {
     let submitEnabled: Observable<Bool>
     let validatedUsername: Observable<Bool>
     let validatedPassword: Observable<Bool>
-    let submitTaps: Observable<Void>
     
     let disposeBag = DisposeBag()
     
@@ -36,12 +35,10 @@ class LoginViewModel {
         
         let usernamePasswordAndSegment = Observable.combineLatest(username, password, segmentControl) { ($0, $1, $2) }
         
-        self.submitTaps = submitTaps
-        
-        self.submitTaps.withLatestFrom(usernamePasswordAndSegment)
+        submitTaps.withLatestFrom(usernamePasswordAndSegment)
             .flatMapLatest { username, password, segment -> Observable<AnyObject> in
                 if segment == 0 {
-                    API.login(username, password: password)
+                    return API.login(username, password: password)
                 }
                 return API.signup(username, password: password)
             }.subscribeNext() { result in
