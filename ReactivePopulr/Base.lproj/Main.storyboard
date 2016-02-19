@@ -39,6 +39,9 @@
                                 <rect key="frame" x="276" y="226" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DUV-mT-b3b">
+                                <rect key="frame" x="333" y="231" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -48,7 +51,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="boj-0N-0fM" secondAttribute="trailing" constant="20" id="Ez2-6Q-b5Q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6HF-oi-0KT" secondAttribute="trailing" constant="20" id="Hxg-Zi-6hN"/>
                             <constraint firstItem="u4R-3e-BLK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nhu-po-6FL"/>
+                            <constraint firstItem="DUV-mT-b3b" firstAttribute="centerY" secondItem="u4R-3e-BLK" secondAttribute="centerY" id="O4M-c7-48c"/>
                             <constraint firstItem="boj-0N-0fM" firstAttribute="top" secondItem="QWJ-xu-d0k" secondAttribute="bottom" constant="8" id="SWC-bU-VgV"/>
+                            <constraint firstItem="DUV-mT-b3b" firstAttribute="leading" secondItem="u4R-3e-BLK" secondAttribute="trailing" constant="8" id="WO2-nA-1Vn"/>
                             <constraint firstItem="u4R-3e-BLK" firstAttribute="top" secondItem="boj-0N-0fM" secondAttribute="bottom" constant="40" id="iNa-oT-hOE"/>
                             <constraint firstItem="QWJ-xu-d0k" firstAttribute="top" secondItem="6HF-oi-0KT" secondAttribute="bottom" constant="30" id="mwq-il-6QM"/>
                             <constraint firstItem="QWJ-xu-d0k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="qc6-sw-4uF"/>
@@ -56,6 +61,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="DUV-mT-b3b" id="evp-m3-MD4"/>
                         <outlet property="passwordTextField" destination="boj-0N-0fM" id="5Vf-7T-VdC"/>
                         <outlet property="segmentControl" destination="6HF-oi-0KT" id="rYa-vv-a3Q"/>
                         <outlet property="submitButton" destination="u4R-3e-BLK" id="RTp-bo-csQ"/>

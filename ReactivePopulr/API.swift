@@ -10,43 +10,42 @@ import Foundation
 import RxSwift
 
 class API {
-    class func login(username: String, password: String) -> Observable<AnyObject> {
+    class func login(username: String, password: String) -> Observable<String> {
         let signupDictionary =  ["data":[
                                     "username":username,
                                     "password":password]]
         
         let request = API.setupPostRequestWithBodyDictionary("http://populr_go_api.gzelle.co/login", dictionary: signupDictionary)
         
-        return API.getURLSessionObservableWithRequest(request)
+        return API.getURLSessionOnboardingObservableWithRequest(request)
     }
     
-    class func signup(username: String, password: String) -> Observable<AnyObject> {
+    class func signup(username: String, password: String) -> Observable<String> {
         let signupDictionary =  ["data":[
                                     "username":username,
                                     "password":password]]
         
         let request = API.setupPostRequestWithBodyDictionary("http://populr_go_api.gzelle.co/signup", dictionary: signupDictionary)
         
-        return API.getURLSessionObservableWithRequest(request)
+        return API.getURLSessionOnboardingObservableWithRequest(request)
     }
 }
 
 private extension API {
-    class func getURLSessionObservableWithRequest(request: NSURLRequest) -> Observable<AnyObject> {
+    class func getURLSessionOnboardingObservableWithRequest(request: NSURLRequest) -> Observable<String> {
         let URLSession = NSURLSession.sharedSession()
         return URLSession.rx_response(request)
             .map { (maybeData, response) in
+                let httpResponse = response as NSHTTPURLResponse
                 
-                do {
-                    let jsonResults = try NSJSONSerialization.JSONObjectWithData(maybeData, options: [])
-                    return jsonResults
-                } catch {
-                    print("Fetch failed: \((error as NSError).localizedDescription)")
+                if httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
+                    return "Unknown error"
                 }
                 
-                return ["error": "could not parse response."]
+                return ""
+               
             }
-            .catchErrorJustReturn(["error": "could not parse response."])
+            .catchErrorJustReturn("Unknown error")
     }
     
     

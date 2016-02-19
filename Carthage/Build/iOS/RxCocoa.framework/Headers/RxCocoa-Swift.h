@@ -276,6 +276,10 @@ SWIFT_CLASS("_TtC7RxCocoa11KVOObserver")
 @end
 
 
+@interface NSObject (SWIFT_EXTENSION(RxCocoa))
+@end
+
+
 @interface NSTextStorage (SWIFT_EXTENSION(RxCocoa))
 
 /// Reactive wrapper for delegate.
@@ -408,7 +412,7 @@ SWIFT_CLASS("_TtC7RxCocoa26RxTableViewDataSourceProxy")
 /// Typed parent object.
 @property (nonatomic, readonly, weak) UITableView * __nullable tableView;
 
-/// Initializes RxTableViewDelegateProxy
+/// Initializes RxTableViewDataSourceProxy
 ///
 /// \param parentObject Parent object for delegate proxy.
 - (nonnull instancetype)initWithParentObject:(id __nonnull)parentObject OBJC_DESIGNATED_INITIALIZER;
@@ -499,6 +503,10 @@ SWIFT_CLASS("_TtC7RxCocoa25TableViewDataSourceNotSet")
 @end
 
 
+@interface UIApplication (SWIFT_EXTENSION(RxCocoa))
+@end
+
+
 @interface UIBarButtonItem (SWIFT_EXTENSION(RxCocoa))
 @end
 
@@ -560,6 +568,10 @@ SWIFT_CLASS("_TtC7RxCocoa25TableViewDataSourceNotSet")
 
 
 @interface UILabel (SWIFT_EXTENSION(RxCocoa))
+@end
+
+
+@interface UIRefreshControl (SWIFT_EXTENSION(RxCocoa))
 @end
 
 

@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     var viewModel: LoginViewModel?
     let disposeBag = DisposeBag()
@@ -33,6 +34,21 @@ class LoginViewController: UIViewController {
         self.viewModel!.submitEnabled
             .bindTo(submitButton.rx_enabled)
             .addDisposableTo(disposeBag)
+        
+        self.viewModel!.signingIn
+            .bindTo(activityIndicator.rx_animating)
+            .addDisposableTo(disposeBag)
+        
+        self.viewModel!.signedIn
+            .subscribeNext { errorString in
+                if errorString.characters.count > 0 {
+                    print("Error: \(errorString)")
+                } else {
+                    print("I guess it worked.")
+                }
+            }.addDisposableTo(disposeBag)
+        
+        
     }
 }
 

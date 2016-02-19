@@ -19,6 +19,12 @@ class LoginViewModel {
     
     let disposeBag = DisposeBag()
     
+    // Is signing process in progress
+    let signedIn: Observable<String>
+    
+    // Is signing process in progress
+    let signingIn: Observable<Bool>
+    
     init(
         username: Observable<String>,
         password: Observable<String>,
@@ -35,15 +41,18 @@ class LoginViewModel {
         
         let usernamePasswordAndSegment = Observable.combineLatest(username, password, segmentControl) { ($0, $1, $2) }
         
-        submitTaps.withLatestFrom(usernamePasswordAndSegment)
-            .flatMapLatest { username, password, segment -> Observable<AnyObject> in
+        let signingIn = ActivityIndicator()
+        self.signingIn = signingIn.asObservable()
+        
+        self.signedIn = submitTaps.withLatestFrom(usernamePasswordAndSegment)
+            .flatMapLatest { username, password, segment -> Observable<String> in
                 if segment == 0 {
                     return API.login(username, password: password)
+                            .trackActivity(signingIn)
                 }
                 return API.signup(username, password: password)
-            }.subscribeNext() { result in
-                print("Something happened! Here's the result: \(result)")
-            }.addDisposableTo(self.disposeBag)
+                        .trackActivity(signingIn)
+            }
     }
     
     class func isUsernameValid(text: String) -> Bool {
