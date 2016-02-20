@@ -40,9 +40,9 @@ class LoginViewController: UIViewController {
             .addDisposableTo(disposeBag)
         
         self.viewModel!.signedIn
-            .subscribeNext { errorString in
-                if errorString.characters.count > 0 {
-                    print("Error: \(errorString)")
+            .subscribeNext { maybeError in
+                if let error = maybeError {
+                    print("Error: \(error)")
                 } else {
                     print("I guess it worked.")
                 }

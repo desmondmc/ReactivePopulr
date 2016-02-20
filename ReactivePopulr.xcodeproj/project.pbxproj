@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7A8ED9EF1C74E0C10022C592 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED9EE1C74E0C10022C592 /* API.swift */; };
-		7A8ED9F31C768F2D0022C592 /* NSURLSession+MyRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED9F21C768F2D0022C592 /* NSURLSession+MyRx.swift */; };
 		7A8ED9F51C778F370022C592 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED9F41C778F370022C592 /* ActivityIndicator.swift */; };
 		7A8ED9F71C788B870022C592 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8ED9F61C788B870022C592 /* SwiftyJSON.framework */; };
+		7A8ED9F91C79129C0022C592 /* CurrentUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED9F81C79129C0022C592 /* CurrentUserModel.swift */; };
 		7ACB0A4B1C727F280009D948 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB0A4A1C727F280009D948 /* LoginViewModel.swift */; };
 		F77C63741C6E3F7D0007381F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C63731C6E3F7D0007381F /* AppDelegate.swift */; };
 		F77C63761C6E3F7D0007381F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C63751C6E3F7D0007381F /* LoginViewController.swift */; };
@@ -43,9 +43,9 @@
 
 /* Begin PBXFileReference section */
 		7A8ED9EE1C74E0C10022C592 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		7A8ED9F21C768F2D0022C592 /* NSURLSession+MyRx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLSession+MyRx.swift"; sourceTree = "<group>"; };
 		7A8ED9F41C778F370022C592 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		7A8ED9F61C788B870022C592 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		7A8ED9F81C79129C0022C592 /* CurrentUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUserModel.swift; sourceTree = "<group>"; };
 		7ACB0A4A1C727F280009D948 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F77C63701C6E3F7D0007381F /* ReactivePopulr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactivePopulr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F77C63731C6E3F7D0007381F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A8ED9FA1C7916B30022C592 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				F77C63751C6E3F7D0007381F /* LoginViewController.swift */,
+				7ACB0A4A1C727F280009D948 /* LoginViewModel.swift */,
+			);
+			name = LoginView;
+			sourceTree = "<group>";
+		};
 		7ACB0A481C6F28000009D948 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,11 +140,10 @@
 		F77C63721C6E3F7D0007381F /* ReactivePopulr */ = {
 			isa = PBXGroup;
 			children = (
+				7A8ED9FA1C7916B30022C592 /* LoginView */,
 				F77C63731C6E3F7D0007381F /* AppDelegate.swift */,
-				F77C63751C6E3F7D0007381F /* LoginViewController.swift */,
-				7ACB0A4A1C727F280009D948 /* LoginViewModel.swift */,
 				7A8ED9EE1C74E0C10022C592 /* API.swift */,
-				7A8ED9F21C768F2D0022C592 /* NSURLSession+MyRx.swift */,
+				7A8ED9F81C79129C0022C592 /* CurrentUserModel.swift */,
 				7A8ED9F41C778F370022C592 /* ActivityIndicator.swift */,
 				F77C63771C6E3F7D0007381F /* Main.storyboard */,
 				F77C637A1C6E3F7D0007381F /* Assets.xcassets */,
@@ -317,9 +325,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F77C63761C6E3F7D0007381F /* LoginViewController.swift in Sources */,
-				7A8ED9F31C768F2D0022C592 /* NSURLSession+MyRx.swift in Sources */,
 				F77C63741C6E3F7D0007381F /* AppDelegate.swift in Sources */,
 				7A8ED9EF1C74E0C10022C592 /* API.swift in Sources */,
+				7A8ED9F91C79129C0022C592 /* CurrentUserModel.swift in Sources */,
 				7A8ED9F51C778F370022C592 /* ActivityIndicator.swift in Sources */,
 				7ACB0A4B1C727F280009D948 /* LoginViewModel.swift in Sources */,
 			);

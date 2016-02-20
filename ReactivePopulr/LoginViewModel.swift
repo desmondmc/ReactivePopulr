@@ -18,7 +18,7 @@ class LoginViewModel {
     let validatedPassword: Observable<Bool>
     
     // Is signing process in progress
-    let signedIn: Observable<String>
+    let signedIn: Observable<String?>
     
     // Is signing process in progress
     let signingIn: Observable<Bool>
@@ -46,13 +46,21 @@ class LoginViewModel {
             self.signingIn) { $0 && $1 && !$2}
         
         self.signedIn = submitTaps.withLatestFrom(usernamePasswordAndSegment)
-            .flatMapLatest { username, password, segment -> Observable<String> in
+            .flatMapLatest { username, password, segment -> Observable<UserModel> in
                 if segment == 0 {
                     return API.login(username, password: password)
                             .trackActivity(signingIn)
                 }
                 return API.signup(username, password: password)
                         .trackActivity(signingIn)
+            }.map { usermodel in
+                if let errorMessage = usermodel.errorMessage {
+                    return errorMessage
+                }
+                
+                CurrentUserModel.setupWithUserModel(usermodel)
+                
+                return nil
             }
     }
     

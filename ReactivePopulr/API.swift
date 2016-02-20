@@ -11,7 +11,7 @@ import RxSwift
 import SwiftyJSON
 
 class API {
-    class func login(username: String, password: String) -> Observable<String> {
+    class func login(username: String, password: String) -> Observable<UserModel> {
         let signupDictionary =  ["data":[
                                     "username":username,
                                     "password":password]]
@@ -21,7 +21,7 @@ class API {
         return API.getURLSessionOnboardingObservableWithRequest(request)
     }
     
-    class func signup(username: String, password: String) -> Observable<String> {
+    class func signup(username: String, password: String) -> Observable<UserModel> {
         let signupDictionary =  ["data":[
                                     "username":username,
                                     "password":password]]
@@ -34,28 +34,48 @@ class API {
 
 private extension API {
     
-    class func getURLSessionOnboardingObservableWithRequest(request: NSURLRequest) -> Observable<String> {
+    class func getURLSessionOnboardingObservableWithRequest(request: NSURLRequest) -> Observable<UserModel> {
         let URLSession = NSURLSession.sharedSession()
         return URLSession.rx_response(request)
             .map { (data, response) in
                 let httpResponse = response as NSHTTPURLResponse
                 
-                if httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
-                    return getErrorMessageFromResponseData(data)
+                let json = JSON(data: data)
+                var usermodel = UserModel(errorMessage: nil)
+                
+                if let errorString = json["errors"][0]["detail"].string {
+                    usermodel.errorMessage = errorString
+                    return usermodel
                 }
                 
-                return ""
+                if httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
+                    usermodel.errorMessage = "Something went wrong. Try again?"
+                    return usermodel
+                }
+                
+                guard let objectID = json["data"]["id"].int else {
+                    usermodel.errorMessage = "Something went wrong. Try again?"
+                    return usermodel
+                }
+                
+                guard let username = json["data"]["username"].string else {
+                    usermodel.errorMessage = "Something went wrong. Try again?"
+                    return usermodel
+                }
+                
+                guard let authToken = json["data"]["new_token"].string else {
+                    usermodel.errorMessage = "Something went wrong. Try again?"
+                    return usermodel
+                }
+                
+                usermodel.objectID = objectID
+                usermodel.username = username
+                usermodel.authToken = authToken
+                usermodel.phoneNumber = json["data"]["phone_number"].string
                
+                return usermodel
             }
-            .catchErrorJustReturn("Unknown error")
-    }
-    
-    class func getErrorMessageFromResponseData(data: NSData) -> String {
-        let json = JSON(data: data)
-        if let errorString = json["errors"][0]["detail"].string {
-            return errorString
-        }
-        return ""
+            .catchErrorJustReturn(UserModel(errorMessage: "Something went wrong. Try again?"))
     }
     
     class func setupPostRequestWithBodyDictionary(url: String, dictionary: [String:AnyObject]) -> NSURLRequest {
