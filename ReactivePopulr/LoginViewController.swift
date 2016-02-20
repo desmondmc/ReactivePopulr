@@ -47,8 +47,6 @@ class LoginViewController: UIViewController {
                     print("I guess it worked.")
                 }
             }.addDisposableTo(disposeBag)
-        
-        
     }
 }
 

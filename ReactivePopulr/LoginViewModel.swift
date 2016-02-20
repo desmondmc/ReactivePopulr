@@ -35,12 +35,15 @@ class LoginViewModel {
         self.validatedPassword = password
             .map { LoginViewModel.isPasswordValid($0) }
         
-        submitEnabled = Observable.combineLatest(validatedUsername, validatedPassword) { $0 && $1 }
-        
         let usernamePasswordAndSegment = Observable.combineLatest(username, password, segmentControl) { ($0, $1, $2) }
         
         let signingIn = ActivityIndicator()
         self.signingIn = signingIn.asObservable()
+        
+        self.submitEnabled = Observable.combineLatest(
+            self.validatedUsername,
+            self.validatedPassword,
+            self.signingIn) { $0 && $1 && !$2}
         
         self.signedIn = submitTaps.withLatestFrom(usernamePasswordAndSegment)
             .flatMapLatest { username, password, segment -> Observable<String> in
