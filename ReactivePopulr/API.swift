@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import SwiftyJSON
 
 class API {
     class func login(username: String, password: String) -> Observable<String> {
@@ -32,14 +33,15 @@ class API {
 }
 
 private extension API {
+    
     class func getURLSessionOnboardingObservableWithRequest(request: NSURLRequest) -> Observable<String> {
         let URLSession = NSURLSession.sharedSession()
         return URLSession.rx_response(request)
-            .map { (maybeData, response) in
+            .map { (data, response) in
                 let httpResponse = response as NSHTTPURLResponse
                 
                 if httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
-                    return "Unknown error"
+                    return getErrorMessageFromResponseData(data)
                 }
                 
                 return ""
@@ -48,6 +50,13 @@ private extension API {
             .catchErrorJustReturn("Unknown error")
     }
     
+    class func getErrorMessageFromResponseData(data: NSData) -> String {
+        let json = JSON(data: data)
+        if let errorString = json["errors"][0]["detail"].string {
+            return errorString
+        }
+        return ""
+    }
     
     class func setupPostRequestWithBodyDictionary(url: String, dictionary: [String:AnyObject]) -> NSURLRequest {
         let URL = NSURL(string: url)!

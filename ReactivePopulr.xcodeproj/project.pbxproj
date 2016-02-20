@@ -10,6 +10,7 @@
 		7A8ED9EF1C74E0C10022C592 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED9EE1C74E0C10022C592 /* API.swift */; };
 		7A8ED9F31C768F2D0022C592 /* NSURLSession+MyRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED9F21C768F2D0022C592 /* NSURLSession+MyRx.swift */; };
 		7A8ED9F51C778F370022C592 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED9F41C778F370022C592 /* ActivityIndicator.swift */; };
+		7A8ED9F71C788B870022C592 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8ED9F61C788B870022C592 /* SwiftyJSON.framework */; };
 		7ACB0A4B1C727F280009D948 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB0A4A1C727F280009D948 /* LoginViewModel.swift */; };
 		F77C63741C6E3F7D0007381F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C63731C6E3F7D0007381F /* AppDelegate.swift */; };
 		F77C63761C6E3F7D0007381F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C63751C6E3F7D0007381F /* LoginViewController.swift */; };
@@ -44,6 +45,7 @@
 		7A8ED9EE1C74E0C10022C592 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		7A8ED9F21C768F2D0022C592 /* NSURLSession+MyRx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSURLSession+MyRx.swift"; sourceTree = "<group>"; };
 		7A8ED9F41C778F370022C592 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		7A8ED9F61C788B870022C592 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		7ACB0A4A1C727F280009D948 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F77C63701C6E3F7D0007381F /* ReactivePopulr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactivePopulr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F77C63731C6E3F7D0007381F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			files = (
 				F77C63A51C6E43940007381F /* RxBlocking.framework in Frameworks */,
 				F77C63A61C6E43940007381F /* RxCocoa.framework in Frameworks */,
+				7A8ED9F71C788B870022C592 /* SwiftyJSON.framework in Frameworks */,
 				F77C63A71C6E43940007381F /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +109,7 @@
 		F77C63671C6E3F7D0007381F = {
 			isa = PBXGroup;
 			children = (
+				7A8ED9F61C788B870022C592 /* SwiftyJSON.framework */,
 				F77C63721C6E3F7D0007381F /* ReactivePopulr */,
 				F77C63871C6E3F7D0007381F /* ReactivePopulrTests */,
 				F77C63921C6E3F7D0007381F /* ReactivePopulrUITests */,
@@ -296,6 +300,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			name = "Carthage Script";
 			outputPaths = (

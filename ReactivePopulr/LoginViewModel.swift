@@ -17,8 +17,6 @@ class LoginViewModel {
     let validatedUsername: Observable<Bool>
     let validatedPassword: Observable<Bool>
     
-    let disposeBag = DisposeBag()
-    
     // Is signing process in progress
     let signedIn: Observable<String>
     
