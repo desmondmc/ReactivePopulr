@@ -1,2 +1,3 @@
 github "ReactiveX/RxSwift"
 github "SwiftyJSON/SwiftyJSON"
+github "RxSwiftCommunity/RxDataSources"
