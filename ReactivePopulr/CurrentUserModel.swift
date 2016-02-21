@@ -18,13 +18,6 @@ struct UserModel {
     var authToken: String?
     var username: String?
     var phoneNumber: String?
-    
-    // This is used for unsuccessful logins so the UI can print an error message.
-    var errorMessage: String?
-    
-    init(errorMessage: String?) {
-        self.errorMessage = errorMessage
-    }
 }
 
 class CurrentUserModel {
@@ -48,8 +41,8 @@ class CurrentUserModel {
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
-    class func objectID() -> String? {
-        return NSUserDefaults.standardUserDefaults().objectForKey(ObjectIDKey) as? String
+    class func objectID() -> Int? {
+        return NSUserDefaults.standardUserDefaults().objectForKey(ObjectIDKey) as? Int
     }
     
     class func authToken() -> String? {

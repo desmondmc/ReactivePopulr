@@ -46,19 +46,22 @@ class LoginViewModel {
             self.signingIn) { $0 && $1 && !$2}
         
         self.signedIn = submitTaps.withLatestFrom(usernamePasswordAndSegment)
-            .flatMapLatest { username, password, segment -> Observable<UserModel> in
+            .flatMapLatest { username, password, segment -> Observable<(UserModel?, String?)> in
                 if segment == 0 {
                     return API.login(username, password: password)
+                            .observeOn(MainScheduler.instance)
                             .trackActivity(signingIn)
                 }
                 return API.signup(username, password: password)
+                        .observeOn(MainScheduler.instance)
                         .trackActivity(signingIn)
-            }.map { usermodel in
-                if let errorMessage = usermodel.errorMessage {
+                }
+            .map { maybeUsermodel, maybeErrorString in
+                if let errorMessage = maybeErrorString {
                     return errorMessage
                 }
                 
-                CurrentUserModel.setupWithUserModel(usermodel)
+                CurrentUserModel.setupWithUserModel(maybeUsermodel!)
                 
                 return nil
             }

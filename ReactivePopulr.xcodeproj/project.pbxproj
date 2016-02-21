@@ -11,6 +11,13 @@
 		7A8ED9F51C778F370022C592 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED9F41C778F370022C592 /* ActivityIndicator.swift */; };
 		7A8ED9F71C788B870022C592 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8ED9F61C788B870022C592 /* SwiftyJSON.framework */; };
 		7A8ED9F91C79129C0022C592 /* CurrentUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED9F81C79129C0022C592 /* CurrentUserModel.swift */; };
+		7A8ED9FD1C79DA170022C592 /* POUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED9FC1C79DA170022C592 /* POUser.swift */; };
+		7A8EDA001C79DC3B0022C592 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8ED9FE1C79DC3B0022C592 /* Realm.framework */; };
+		7A8EDA011C79DC3B0022C592 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8ED9FF1C79DC3B0022C592 /* RealmSwift.framework */; };
+		7A8EDA041C79E8280022C592 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8EDA031C79E8280022C592 /* FriendsListViewController.swift */; };
+		7A8EDA061C79E8600022C592 /* FriendsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8EDA051C79E8600022C592 /* FriendsListViewController.xib */; };
+		7A8EDA081C79E8C60022C592 /* FriendsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8EDA071C79E8C60022C592 /* FriendsListViewModel.swift */; };
+		7A8EDA0C1C7A49A60022C592 /* RxRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8EDA0B1C7A49A60022C592 /* RxRealm.swift */; };
 		7ACB0A4B1C727F280009D948 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB0A4A1C727F280009D948 /* LoginViewModel.swift */; };
 		F77C63741C6E3F7D0007381F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C63731C6E3F7D0007381F /* AppDelegate.swift */; };
 		F77C63761C6E3F7D0007381F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77C63751C6E3F7D0007381F /* LoginViewController.swift */; };
@@ -46,6 +53,13 @@
 		7A8ED9F41C778F370022C592 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		7A8ED9F61C788B870022C592 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		7A8ED9F81C79129C0022C592 /* CurrentUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUserModel.swift; sourceTree = "<group>"; };
+		7A8ED9FC1C79DA170022C592 /* POUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POUser.swift; sourceTree = "<group>"; };
+		7A8ED9FE1C79DC3B0022C592 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		7A8ED9FF1C79DC3B0022C592 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		7A8EDA031C79E8280022C592 /* FriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
+		7A8EDA051C79E8600022C592 /* FriendsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsListViewController.xib; sourceTree = "<group>"; };
+		7A8EDA071C79E8C60022C592 /* FriendsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListViewModel.swift; sourceTree = "<group>"; };
+		7A8EDA0B1C7A49A60022C592 /* RxRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxRealm.swift; sourceTree = "<group>"; };
 		7ACB0A4A1C727F280009D948 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F77C63701C6E3F7D0007381F /* ReactivePopulr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactivePopulr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F77C63731C6E3F7D0007381F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +89,8 @@
 				F77C63A61C6E43940007381F /* RxCocoa.framework in Frameworks */,
 				7A8ED9F71C788B870022C592 /* SwiftyJSON.framework in Frameworks */,
 				F77C63A71C6E43940007381F /* RxSwift.framework in Frameworks */,
+				7A8EDA001C79DC3B0022C592 /* Realm.framework in Frameworks */,
+				7A8EDA011C79DC3B0022C592 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,9 +120,40 @@
 			name = LoginView;
 			sourceTree = "<group>";
 		};
+		7A8ED9FB1C79D98F0022C592 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7A8ED9FC1C79DA170022C592 /* POUser.swift */,
+				7A8ED9F81C79129C0022C592 /* CurrentUserModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7A8EDA021C79E8000022C592 /* FriendsListView */ = {
+			isa = PBXGroup;
+			children = (
+				7A8EDA031C79E8280022C592 /* FriendsListViewController.swift */,
+				7A8EDA071C79E8C60022C592 /* FriendsListViewModel.swift */,
+				7A8EDA051C79E8600022C592 /* FriendsListViewController.xib */,
+			);
+			name = FriendsListView;
+			sourceTree = "<group>";
+		};
+		7A8EDA0A1C7A49900022C592 /* RxHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				7A8ED9F41C778F370022C592 /* ActivityIndicator.swift */,
+				7A8EDA0B1C7A49A60022C592 /* RxRealm.swift */,
+			);
+			name = RxHelpers;
+			sourceTree = "<group>";
+		};
 		7ACB0A481C6F28000009D948 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A8ED9FE1C79DC3B0022C592 /* Realm.framework */,
+				7A8ED9FF1C79DC3B0022C592 /* RealmSwift.framework */,
+				7A8ED9F61C788B870022C592 /* SwiftyJSON.framework */,
 				F77C63A11C6E43940007381F /* RxBlocking.framework */,
 				F77C63A21C6E43940007381F /* RxCocoa.framework */,
 				F77C63A31C6E43940007381F /* RxSwift.framework */,
@@ -118,7 +165,6 @@
 		F77C63671C6E3F7D0007381F = {
 			isa = PBXGroup;
 			children = (
-				7A8ED9F61C788B870022C592 /* SwiftyJSON.framework */,
 				F77C63721C6E3F7D0007381F /* ReactivePopulr */,
 				F77C63871C6E3F7D0007381F /* ReactivePopulrTests */,
 				F77C63921C6E3F7D0007381F /* ReactivePopulrUITests */,
@@ -140,11 +186,12 @@
 		F77C63721C6E3F7D0007381F /* ReactivePopulr */ = {
 			isa = PBXGroup;
 			children = (
+				7A8EDA0A1C7A49900022C592 /* RxHelpers */,
+				7A8EDA021C79E8000022C592 /* FriendsListView */,
 				7A8ED9FA1C7916B30022C592 /* LoginView */,
+				7A8ED9FB1C79D98F0022C592 /* Model */,
 				F77C63731C6E3F7D0007381F /* AppDelegate.swift */,
 				7A8ED9EE1C74E0C10022C592 /* API.swift */,
-				7A8ED9F81C79129C0022C592 /* CurrentUserModel.swift */,
-				7A8ED9F41C778F370022C592 /* ActivityIndicator.swift */,
 				F77C63771C6E3F7D0007381F /* Main.storyboard */,
 				F77C637A1C6E3F7D0007381F /* Assets.xcassets */,
 				F77C637C1C6E3F7D0007381F /* LaunchScreen.storyboard */,
@@ -276,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A8EDA061C79E8600022C592 /* FriendsListViewController.xib in Resources */,
 				F77C637E1C6E3F7D0007381F /* LaunchScreen.storyboard in Resources */,
 				F77C637B1C6E3F7D0007381F /* Assets.xcassets in Resources */,
 				F77C63791C6E3F7D0007381F /* Main.storyboard in Resources */,
@@ -309,6 +357,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			name = "Carthage Script";
 			outputPaths = (
@@ -324,12 +374,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A8EDA041C79E8280022C592 /* FriendsListViewController.swift in Sources */,
+				7A8EDA081C79E8C60022C592 /* FriendsListViewModel.swift in Sources */,
 				F77C63761C6E3F7D0007381F /* LoginViewController.swift in Sources */,
+				7A8ED9FD1C79DA170022C592 /* POUser.swift in Sources */,
 				F77C63741C6E3F7D0007381F /* AppDelegate.swift in Sources */,
 				7A8ED9EF1C74E0C10022C592 /* API.swift in Sources */,
 				7A8ED9F91C79129C0022C592 /* CurrentUserModel.swift in Sources */,
 				7A8ED9F51C778F370022C592 /* ActivityIndicator.swift in Sources */,
 				7ACB0A4B1C727F280009D948 /* LoginViewModel.swift in Sources */,
+				7A8EDA0C1C7A49A60022C592 /* RxRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

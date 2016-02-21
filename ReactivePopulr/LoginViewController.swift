@@ -45,6 +45,7 @@ class LoginViewController: UIViewController {
                     print("Error: \(error)")
                 } else {
                     print("I guess it worked.")
+                    self.presentViewController(FriendsListViewController(), animated: true, completion: nil)
                 }
             }.addDisposableTo(disposeBag)
     }
